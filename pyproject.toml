@@ -5,6 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "inferactively-pymdp==0.0.7.1",
+    "inferactively-pymdp",
     "rich==13.7.0",
 ]
+
+[tool.uv.sources]
+inferactively-pymdp = { git = "https://github.com/infer-actively/pymdp.git", rev = "v1.0.0_alpha" }
