@@ -7,11 +7,11 @@ These will largely focus on how to set up a generative model to represent real w
 ## Setup
 you can use pip and venv as below
 ```bash
-python3 -m venv venv
+python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
-or you can use `uv` with the `pyproject.toml` file.
+or you can use `uv` with the `pyproject.toml` file (recommended).
 
 ## Execution
 You can run any of the examples independently with e.g. `python3 examples/perception.py`
