@@ -1,0 +1,13 @@
+[project]
+name = "pymdp-cookbook"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "inferactively-pymdp",
+    "rich==13.7.0",
+]
+
+[tool.uv.sources]
+inferactively-pymdp = { git = "https://github.com/infer-actively/pymdp.git", rev = "v1.0.0_alpha" }
