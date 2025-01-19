@@ -1,0 +1,10 @@
+[project]
+name = "pymdp-cookbook"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "inferactively-pymdp==0.0.7.1",
+    "rich==13.7.0",
+]
