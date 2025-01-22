@@ -43,6 +43,7 @@ model.A["temperature"].data = np.eye( # Pull out the A matrix for the hidden sta
 # We'll set it up so:
     # if the radiator is off, the temperature will drop by one "unit" per timestep
     # if the radiator is on, the temperature will increase by one "unit" per timestep
+    # subject to limits on the lowest and highest values for temperature
 # Initialise B tensor (hidden state transitions)
 # B[f][s_t+1, s_t, u_t] stores the probability:
     #  for factor f (hidden state variable)
@@ -84,14 +85,13 @@ model.C["temperature"]["high"] = 0.2
 # Instantiate a pymdp Agent from the generative model
 agent = Agent(
     **model,
-    policy_len=1,
     apply_batch=True,
     learn_A=False,
     learn_B=False,
     learn_D=False,
 )
 
-# Now let's set up our first perception/action loop iteration
+# Now let's set up our first perception/action iteration
 observation = np.array([[0]]) # Observe the room is cold
 qs = agent.infer_states(
     observations=[observation],
@@ -100,7 +100,7 @@ qs = agent.infer_states(
 # >>> print(qs)
 # [Array([[[1.00000e+00, 2.22045e-16, 2.22045e-16]]], dtype=float32)]
 
-# Now let's calculate the expected free energy G and calculate q over policies (q_pi)
+# Now let's calculate the expected free energy G and the posterior distribution over policies (q_pi)
 q_pi, G = agent.infer_policies(qs)
 # >>> print(q_pi) # q_pi is just a softmax over G
 # [[0.3543437 0.6456563]]

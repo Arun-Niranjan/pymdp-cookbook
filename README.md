@@ -14,4 +14,4 @@ pip install -r requirements.txt
 or you can use `uv` with the `pyproject.toml` file (recommended).
 
 ## Execution
-You can run any of the examples independently with e.g. `python3 -i examples/perception.py`
+You can run any of the examples independently with e.g. `python3 -i examples/basic/01_perception.py`
